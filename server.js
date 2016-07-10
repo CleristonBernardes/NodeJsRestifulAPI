@@ -8,7 +8,7 @@ var app = express();
 app.use(bodyParser.json());
 app.use(function(err, req, res, next) {
 	var erro = {"error": "Could not decode request: JSON parsing failed"};
-	result = { "status" : 400, "exchange" : erro};
+	handleResponse(res, 400, erro);
 })
 
 app.get('/sourceData', function (req, res) {

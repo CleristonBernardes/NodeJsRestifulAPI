@@ -22,9 +22,15 @@ app.post('/filteredData', function (req, res) {
 	handleResponse(res, result.status, result.exchange);
 })
 
+app.post('/', function (req, res) {
+	var result = business.filterFullPayLoad(req.body);
+	console.log(result.exchange);
+	handleResponse(res, result.status, result.exchange);
+})
 
-var server = app.listen(process.env.PORT || 8080, function () {
-  console.log("Service running....");
+
+var server = app.listen(process.env.PORT || 8081, function () {
+  console.log("Service running 8081....");
 })
 
 
